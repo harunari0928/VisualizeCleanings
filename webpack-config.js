@@ -74,14 +74,11 @@ module.exports = {
         port: 3000,
         hot: true,
         historyApiFallback: true,
-        open: 'http://localhost:8080',
+        open: 'http://localhost:8081',
         client: {
             webSocketURL: {
-                port: 8080
+                port: 8081
             }
         }
     },
-    // optimization: {
-    //     runtimeChunk: "single",
-    // },
 };
