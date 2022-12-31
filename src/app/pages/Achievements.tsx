@@ -77,7 +77,7 @@ export function Achievements() {
         <DialogTitle>掃除実績登録</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            あなたが実施した掃除の記録を登録します。
+            あなたの掃除を記録します。
           </DialogContentText>
         </DialogContent>
         <DialogActions>
