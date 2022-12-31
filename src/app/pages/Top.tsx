@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import BarChartIcon from '@mui/icons-material/BarChart';
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 import Button from '@mui/material/Button';
@@ -26,10 +27,13 @@ export function Top() {
             justifyContent="center"
             direction={{ xs: 'column', sm: 'row' }}
             spacing={{ xs: 1, sm: 2, md: 4 }}>
-            <MenuBottn variant="contained">掃除実績<BarChartIcon /></MenuBottn>
+            <Link to="/achievements">
+              <MenuBottn variant="contained">掃除実績<BarChartIcon /></MenuBottn>
+            </Link>
             <MenuBottn variant="contained">掃除内容<CleaningServicesIcon /></MenuBottn>
           </Stack>
       </Grid>
       <Grid item xs={4} />
-    </TopGrid>);
+    </TopGrid>
+  );
 }
