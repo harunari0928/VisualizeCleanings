@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Top } from './pages/Top';
 import { Achievements } from './pages/Achievements';
+import { Cleanings } from './pages/Cleanings';
 
 const container = document.getElementById('root');
 if (!container) {
@@ -13,6 +14,7 @@ createRoot(container).render(
         <Routes>
             <Route path="/" element={<Top />} />
             <Route path="/achievements" element={<Achievements />} />
+            <Route path="/cleanings" element={<Cleanings />} />
         </Routes>
     </Router>
 );

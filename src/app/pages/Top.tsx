@@ -30,7 +30,9 @@ export function Top() {
             <Link to="/achievements">
               <MenuBottn variant="contained">掃除実績<BarChartIcon /></MenuBottn>
             </Link>
-            <MenuBottn variant="contained">掃除内容<CleaningServicesIcon /></MenuBottn>
+            <Link to="/cleanings">
+              <MenuBottn variant="contained">掃除内容<CleaningServicesIcon /></MenuBottn>
+            </Link>
           </Stack>
       </Grid>
       <Grid item xs={4} />
