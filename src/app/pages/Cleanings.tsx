@@ -15,6 +15,15 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Radio from "@mui/material/Radio";
+import FormLabel from "@mui/material/FormLabel";
+import RadioGroup from "@mui/material/RadioGroup";
+import TextField from "@mui/material/TextField";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import InputAdornment from "@mui/material/InputAdornment";
 
 export function Cleanings() {
     const [isAddDialogOpen, setAddDialogOpen] = useState(false);
@@ -23,8 +32,18 @@ export function Cleanings() {
     for (let i = 0; i < 3 - [...Array(16)].length % 3; i++) {
         contents.push('');
     }
-    
-    return (<Grid>
+
+    const [occurrence, setOccurrence] = React.useState('everyday');
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setOccurrence(event.target.value);
+    };
+
+    const addDialogOpen = () => {
+        setOccurrence('everyday');
+        setAddDialogOpen(true);
+    };
+
+    return <div>
         <Container sx={{
             height: 'calc(100vh - 5rem)',
             overflowY: 'scroll',
@@ -58,8 +77,8 @@ export function Cleanings() {
         </Container>
         <Button
             variant="contained"
-            sx={{ position: 'absolute', bottom: 16, left: 16, borderRadius: 28 }}
-            onClick={() => setAddDialogOpen(true)}>
+            sx={{ position: 'absolute', bottom: 50, left: 100, borderRadius: 28 }}
+            onClick={addDialogOpen}>
             <AddIcon />登録
         </Button>
         <Dialog
@@ -73,6 +92,63 @@ export function Cleanings() {
                 <DialogContentText>
                     掃除を登録します。
                 </DialogContentText>
+                <FormControl sx={{ marginTop: '1rem' }}>
+                    <FormLabel>タイトル</FormLabel>
+                    <TextField variant="standard" />
+                    <FormLabel sx={{ marginTop: '1rem' }}>難易度</FormLabel>
+                    <TextField
+                        variant="standard"
+                        type="number"
+                        sx={{ width: '4rem' }}
+                        InputProps={{
+                            inputProps: { min: 1, max: 50 },
+                            'aria-label': 'Without label',
+                            endAdornment: <InputAdornment position="end">pt</InputAdornment>,
+                        }}
+                    />
+                    <FormLabel sx={{ marginTop: '1rem' }}>発生頻度</FormLabel>
+                    <RadioGroup
+                        row
+                        aria-labelledby="frequency-of-occurrence-group-label"
+                        name="frequency-of-occurrence-group"
+                        defaultValue="everyday"
+                        onChange={handleChange}
+                    >
+                        <FormControlLabel value="everyday" control={<Radio />} label="毎日" />
+                        <FormControlLabel value="byMonth" control={<Radio />} label="日付ごと" />
+                        <FormControlLabel value="byDayOfWeek" control={<Radio />} label="曜日ごと" />
+                    </RadioGroup>
+                    {(() => {
+                        if (occurrence === 'byMonth') {
+                            return <FormControl sx={{ marginTop: '1rem', width: '4rem' }}>
+                                <TextField
+                                    variant="standard"
+                                    type="number"
+                                    InputProps={{
+                                        inputProps: { min: 0, max: 31 },
+                                        'aria-label': 'Without label',
+                                        endAdornment: <InputAdornment position="end">日</InputAdornment>,
+                                    }}
+                                />
+                            </FormControl>;
+                        } else if (occurrence === 'byDayOfWeek') {
+                            return <FormControl variant="standard" sx={{ marginTop: '1rem', width: '4rem' }}>
+                                <Select
+                                    label="dayOfWeek"
+                                    defaultValue={0}
+                                    inputProps={{ 'aria-label': 'Without label' }}
+                                >{['日', '月', '火', '水', '木', '金', '土'].map((d, i) => <MenuItem value={i}>{d}</MenuItem>)}
+                                </Select>
+                            </FormControl>;
+                        }
+                    })()}
+                    <FormLabel sx={{ marginTop: '1rem' }}>備考</FormLabel>
+                    <TextField
+                        multiline
+                        maxRows={4}
+                        variant="standard"
+                    />
+                </FormControl>
             </DialogContent>
             <DialogActions>
                 <Button onClick={() => setAddDialogOpen(false)}>登録</Button>
@@ -100,6 +176,6 @@ export function Cleanings() {
                 </Button>
             </DialogActions>
         </Dialog>
-    </Grid>);
+    </div>;
 }
 
