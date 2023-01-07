@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import React, { useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
-import AddIcon from '@mui/icons-material/Add';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import Grid from '@mui/material/Grid';
+import RegisterButton from '../components/atoms/RegisterButton';
+import CleaningAchievementRegistrationDialog from '../components/organisms/CleaningAchievementRegistrationDialog';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -42,14 +37,6 @@ const data = {
 export function Achievements() {
   const [open, setOpen] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <>
       <Grid container>
@@ -62,30 +49,12 @@ export function Achievements() {
       <Grid container>
         <Grid item xs={0} md={2} />
         <Grid item xs={3}>
-          <Button variant="contained" sx={{ borderRadius: 28 }} onClick={handleClickOpen}>
-            <AddIcon />登録
-          </Button>
+          <RegisterButton onClick={() => setOpen(true)} />
         </Grid>
         <Grid item xs={8} />
       </Grid>
-      <Dialog
-        fullWidth={true}
-        maxWidth="md"
-        open={open}
-        onClose={handleClose}
-      >
-        <DialogTitle>掃除実績登録</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            あなたの掃除を記録します。
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>登録</Button>
-          <Button onClick={handleClose} autoFocus>
-            閉じる
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <CleaningAchievementRegistrationDialog
+        isOpen={open}
+        onClose={() => setOpen(false)} />
     </>);
 }
