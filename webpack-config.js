@@ -56,7 +56,8 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            NODE_ENV: environment
+            NODE_ENV: environment,
+            'process.env.GOOGLE_CLIENT_ID': JSON.stringify(process.env.GOOGLE_CLIENT_ID)
         }),
         new HtmlWebpackPlugin({
             title: 'development',
