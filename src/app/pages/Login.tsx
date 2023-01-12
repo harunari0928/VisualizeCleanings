@@ -9,14 +9,23 @@ declare global {
 const Login = () => {
     const navigator = useNavigate();
     const handleGoogle = async (payload: unknown) => {
-        await fetch('http://localhost:45612/login', {
+        const serializedToken = JSON.stringify(payload);
+        const response = await fetch('http://localhost:45612/login', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify(payload),
+            body: serializedToken,
         });
-        navigator('/top');
+        switch (response.status) {
+            case 200:
+                navigator('/top');
+                break;
+            case 202:
+                navigator(`/signup?token=${serializedToken}`);
+                break;
+            default:
+        }
     };
 
     useEffect(() => {

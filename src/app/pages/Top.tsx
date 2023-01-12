@@ -10,7 +10,7 @@ import Stack from '@mui/material/Stack';
 const TopGrid = styled(Grid)(({ }) => ({
   marginTop: '40vh',
 }));
-const MenuBottn = styled(Button)(({ theme }) => ({
+const MenuButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -28,10 +28,10 @@ export function Top() {
             direction={{ xs: 'column', sm: 'row' }}
             spacing={{ xs: 1, sm: 2, md: 4 }}>
             <Link to="/achievements">
-              <MenuBottn variant="contained">掃除実績<BarChartIcon /></MenuBottn>
+              <MenuButton variant="contained">掃除実績<BarChartIcon /></MenuButton>
             </Link>
             <Link to="/cleanings">
-              <MenuBottn variant="contained">掃除内容<CleaningServicesIcon /></MenuBottn>
+              <MenuButton variant="contained">掃除内容<CleaningServicesIcon /></MenuButton>
             </Link>
           </Stack>
       </Grid>
