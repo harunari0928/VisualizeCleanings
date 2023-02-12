@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import { useBackend } from "../contexts/BackendContext";
 
 const TopGrid = styled(Grid)(({ }) => ({
     marginTop: '40vh',
@@ -21,26 +22,21 @@ const Signup = () => {
         inputUserName = e.target.value;
     };
     const query = useQuery();
-
-    const navigator = useNavigate();
+    const navigate = useNavigate();
+    const { authApiClient } = useBackend();
     const onRegisterClick = async () => {
-        const requestBody = {
-            token: JSON.parse(query.get('token') ?? '{}'),
-            user_name: inputUserName,
-        };
-        const response = await fetch('http://localhost:45612/signup', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(requestBody),
+        const { situation } = await authApiClient.signup({
+            signupInfo: {
+                token: JSON.parse(query.get('token') ?? '{}'),
+                userName: inputUserName,
+            }
         });
-        switch (response.status) {
-            case 200:
-                navigator('/top');
+        switch (situation) {
+            case 'Succeeded':
+                navigate('/top');
                 break;
             default:
-                navigator('/');
+                navigate('/');
                 break;
         }
     };

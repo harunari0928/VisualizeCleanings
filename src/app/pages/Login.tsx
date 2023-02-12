@@ -1,28 +1,24 @@
+import { CredentialResponse } from "google-one-tap";
 import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useBackend } from "../contexts/BackendContext";
 
 declare global {
     const google: typeof import('google-one-tap');
 }
 
 const Login = () => {
-    const navigator = useNavigate();
-    const handleGoogle = async (payload: unknown) => {
-        const serializedToken = JSON.stringify(payload);
-        const response = await fetch('http://localhost:45612/login', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: serializedToken,
-        });
-        switch (response.status) {
-            case 200:
-                navigator('/top');
+    const navigate = useNavigate();
+    const { authApiClient } = useBackend();
+    const handleGoogle = async (credentialResponse: CredentialResponse) => {
+        const { situation } = await authApiClient.login({ loginInfo: credentialResponse })
+        switch (situation) {
+            case 'Succeeded':
+                navigate('/top');
                 break;
-            case 202:
-                navigator(`/signup?token=${serializedToken}`);
+            case 'NotRegistered':
+                navigate(`/signup?token=${JSON.stringify(credentialResponse)}`);
                 break;
             default:
         }
