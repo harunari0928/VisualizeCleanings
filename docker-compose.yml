@@ -4,8 +4,8 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.dev
-    ports:
-     - "3000"  
+    expose:
+      - 3000 
     volumes:
       - .:/workspace
       - /workspace/node_modules
@@ -13,6 +13,7 @@ services:
     container_name: visualize_effort_frontend_server
     environment:
       GOOGLE_CLIENT_ID: 1038036987590-67hu5cedcmtqmuc77s9kvc2dhthl1gv4.apps.googleusercontent.com
+      BASE_BACKEND_PATH: /api
   proxy:
     image: nginx:latest
     volumes:
@@ -20,4 +21,34 @@ services:
     ports:
       - "8081:80"
     depends_on:
+      - backend
       - front
+  backend:
+    image: harunari/effort_visualizer:stable-550
+    expose:
+      - 8080
+    container_name: effort_visualizer_backend
+    environment: 
+      DB_SERVERNAME: effort_visualizer_rdb
+      DB_USERID: postgres
+      DB_NAME: postgres
+      DB_PORT: 5432
+      DB_PASSWORD: mysecretpassword
+      GOOGLE_CLIENT_ID: 1038036987590-67hu5cedcmtqmuc77s9kvc2dhthl1gv4.apps.googleusercontent.com
+      RUST_LOG: debug
+    depends_on:
+      - rdb
+  rdb:
+    image: harunari/effort_visualizer_database:stable
+    container_name: effort_visualizer_rdb
+    volumes:
+      - databsae_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+    expose:
+      - 5432
+volumes:
+  databsae_volume:
+    driver: local

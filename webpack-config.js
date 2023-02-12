@@ -57,6 +57,7 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             NODE_ENV: environment,
+            'process.env.BASE_BACKEND_PATH': JSON.stringify(process.env.BASE_BACKEND_PATH),
             'process.env.GOOGLE_CLIENT_ID': JSON.stringify(process.env.GOOGLE_CLIENT_ID)
         }),
         new HtmlWebpackPlugin({
