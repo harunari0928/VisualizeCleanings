@@ -34,7 +34,7 @@ const data = {
   ],
 };
 
-export function Achievements() {
+export default function Achievements() {
   const [open, setOpen] = useState(false);
 
   return (

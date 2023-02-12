@@ -46,7 +46,7 @@ const RegisterCleaningDialog = ({ isOpen, setOpen }: Props) => {
             executionTitle="登録" cancelTitle="キャンセル"
             onExecute={() => setOpen(false)}
             onCancel={() => setOpen(false)} />
-    </Dialog >;
+    </Dialog>;
 };
 
 export default RegisterCleaningDialog;

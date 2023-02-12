@@ -6,7 +6,7 @@ import RegisterButton from '../components/atoms/RegisterButton';
 import RegisterCleaningDialog from '../components/organisms/RegisterCleaningDialog';
 import RemoveItemDialog from '../components/organisms/RemoveItemDialog';
 
-export function Cleanings() {
+export default function Cleanings() {
     const [isAddDialogOpen, setAddDialogOpen] = useState(false);
     const [isRemoveDialogOpen, setRemoveDialogOpen] = useState(false);
     let contents = [...Array(16)];

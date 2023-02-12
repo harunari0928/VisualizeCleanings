@@ -18,7 +18,7 @@ const MenuButton = styled(Button)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export function Top() {
+export default function Top() {
   return (
     <TopGrid container spacing={2}>
       <Grid item xs={4} />

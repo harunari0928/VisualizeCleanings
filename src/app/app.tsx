@@ -2,9 +2,9 @@
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BackendProvider from './contexts/BackendContext';
-import { Top } from './pages/Top';
-import { Achievements } from './pages/Achievements';
-import { Cleanings } from './pages/Cleanings';
+import Achievements from './pages/Achievements';
+import Cleanings from './pages/Cleanings';
+import Top from './pages/Top';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
