@@ -52,7 +52,7 @@ const Signup = () => {
             </Stack>
         </Grid>
         <Grid item xs={3} />
-    </TopGrid >;
+    </TopGrid>;
 };
 
 export default Signup;
