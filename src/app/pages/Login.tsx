@@ -1,8 +1,7 @@
-import { CredentialResponse } from "google-one-tap";
-import React from "react";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useBackend } from "../contexts/BackendContext";
+import { CredentialResponse } from 'google-one-tap';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useBackend } from '../contexts/BackendContext';
 
 declare global {
     const google: typeof import('google-one-tap');
@@ -24,25 +23,26 @@ const Login = () => {
         }
     };
 
+    
     useEffect(() => {
-        if (!process.env.GOOGLE_CLIENT_ID) {
-            throw new Error("the enviroment variable is not set.");
+        if (!import.meta.env.VITE_GOOGLE_CLIENT_ID) {
+            throw new Error('the enviroment variable is not set.');
         }
 
         google.accounts.id.initialize({
-            client_id: process.env.GOOGLE_CLIENT_ID,
+            client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
             callback: handleGoogle,
         });
 
-        const signUpButton = document.getElementById("signUpDiv");
+        const signUpButton = document.getElementById('signUpDiv');
         if (!signUpButton) {
             throw new Error('the element for sign up is not set.')
         }
 
         google.accounts.id.renderButton(signUpButton, {
-            theme: "filled_black",
-            text: "continue_with",
-            shape: "pill",
+            theme: 'filled_black',
+            text: 'continue_with',
+            shape: 'pill',
         });
     }, [handleGoogle]);
 
@@ -50,13 +50,13 @@ const Login = () => {
         <>
             <main
                 style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    alignItems: "center",
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    alignItems: 'center',
                 }}
             >
-                <div id="signUpDiv" data-text="signup_with"></div>
+                <div id='signUpDiv' data-text='signup_with'></div>
             </main>
         </>
     );

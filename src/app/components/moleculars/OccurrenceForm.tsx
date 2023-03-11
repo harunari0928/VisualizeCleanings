@@ -1,11 +1,10 @@
-import React from "react";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import { SxProps } from "@mui/material/styles";
-import { Theme } from "@mui/system";
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import { SxProps } from '@mui/material/styles';
+import { Theme } from '@mui/system';
 import DayOfWeekSelector from '../atoms/DayOfWeekSelector';
 import DaySelector from '../atoms/DaySelector';
 
@@ -35,9 +34,9 @@ const OccurrenceForm = ({ setOccurrence, occurrence, sx }: Props) =>
             <FormLabel>発生頻度</FormLabel>
             <RadioGroup
                 row
-                aria-labelledby="frequency-of-occurrence-group-label"
-                name="frequency-of-occurrence-group"
-                defaultValue="everyday"
+                aria-labelledby='frequency-of-occurrence-group-label'
+                name='frequency-of-occurrence-group'
+                defaultValue='everyday'
                 onChange={e => setOccurrence(e.target.value as Occurrence)}
             >
                 {[

@@ -1,6 +1,5 @@
-import React from "react";
-import Button from "@mui/material/Button";
-import DialogActions from "@mui/material/DialogActions";
+import Button from '@mui/material/Button';
+import DialogActions from '@mui/material/DialogActions';
 
 type Props = {
     executionTitle: string,
