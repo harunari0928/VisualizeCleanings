@@ -1,20 +1,18 @@
-// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.117.1/containers/javascript-node-12
 {
 	"name": "VisualizeEffort",
 	"service": "front",
 	"dockerComposeFile": "../docker-compose.yml",
 	"workspaceFolder": "/workspace",
-	"appPort": [
-		3000
-	],
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"ZixuanChen.vitest-explorer"		
+			],
+			"settings": {
+				"vitest.commandLine": "npm run test"
+			}
+		}
 	},
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"dbaeumer.vscode-eslint",
-		"firsttris.vscode-jest-runner"		
-	],
 	"shutdownAction": "none"
 }
