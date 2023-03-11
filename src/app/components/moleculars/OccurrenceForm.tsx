@@ -22,7 +22,7 @@ const OccurrenceDetailForm = ({ occurrence }: { occurrence: Occurrence }) => {
         case 'byMonth':
             return <DaySelector sx={marginBetweenForms} />;
         case 'byDayOfWeek':
-            return <DayOfWeekSelector sx={marginBetweenForms} />;
+            return <DayOfWeekSelector sx={marginBetweenForms} onChange={() => {}} />;
         default:
             return <></>;
     }

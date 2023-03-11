@@ -16,11 +16,11 @@ export default defineConfig(() => {
                 include: '**/*.{jsx,tsx}',
             }),
         ],
+        root: 'src',
         server: {
             host: true,
             port: 3000,
             strictPort: true
-        },
-        root: 'src',
+        }
     };
 });
