@@ -1,8 +1,8 @@
+import BasicDialogActionButtons from '@components/atoms/BasicDialogActionButtons';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import BasicDialogActionButtons from '../atoms/BasicDialogActionButtons';
 
 type Props = {
     title: string,

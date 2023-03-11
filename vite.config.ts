@@ -16,11 +16,16 @@ export default defineConfig(() => {
                 include: '**/*.{jsx,tsx}',
             }),
         ],
+        root: 'src',
+        resolve: {
+            alias: {
+                '@components/': './app/components/',
+            },
+        },
         server: {
             host: true,
             port: 3000,
             strictPort: true
-        },
-        root: 'src',
+        }
     };
 });

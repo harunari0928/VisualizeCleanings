@@ -1,3 +1,5 @@
+import DayOfWeekSelector from '@components/atoms/DayOfWeekSelector';
+import DaySelector from '@components/atoms/DaySelector';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -5,8 +7,6 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import { SxProps } from '@mui/material/styles';
 import { Theme } from '@mui/system';
-import DayOfWeekSelector from '../atoms/DayOfWeekSelector';
-import DaySelector from '../atoms/DaySelector';
 
 export type Occurrence = 'everyday' | 'byMonth' | 'byDayOfWeek';
 
@@ -22,7 +22,7 @@ const OccurrenceDetailForm = ({ occurrence }: { occurrence: Occurrence }) => {
         case 'byMonth':
             return <DaySelector sx={marginBetweenForms} />;
         case 'byDayOfWeek':
-            return <DayOfWeekSelector sx={marginBetweenForms} />;
+            return <DayOfWeekSelector sx={marginBetweenForms} onChange={() => {}} />;
         default:
             return <></>;
     }
