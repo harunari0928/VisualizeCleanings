@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { useLocation, useNavigate } from "react-router-dom";
-import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import { useBackend } from "../contexts/BackendContext";
+import React from 'react';
+import styled from '@emotion/styled';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import { useBackend } from '../contexts/BackendContext';
 
 const TopGrid = styled(Grid)(({ }) => ({
     marginTop: '40vh',
@@ -44,11 +44,11 @@ const Signup = () => {
         <Grid item xs={3} />
         <Grid item xs={6}>
             <Stack
-                alignItems="center"
+                alignItems='center'
                 direction={{ xs: 'column', sm: 'column' }}
                 spacing={{ xs: 1, sm: 2, md: 4 }}>
-                <TextField label="ニックネーム" variant="outlined" onChange={onUserNameChange} sx={{ maxWidth: "15rem" }} />
-                <Button variant="contained" onClick={onRegisterClick} sx={{ maxWidth: "5rem" }}>登録</Button>
+                <TextField label='ニックネーム' variant='outlined' onChange={onUserNameChange} sx={{ maxWidth: '15rem' }} />
+                <Button variant='contained' onClick={onRegisterClick} sx={{ maxWidth: '5rem' }}>登録</Button>
             </Stack>
         </Grid>
         <Grid item xs={3} />
