@@ -4,14 +4,17 @@ import viteConfig from './vite.config'
 
 export default mergeConfig(viteConfig, defineConfig({
     test: {
-        globals: true,
-        environment: 'jsdom',
-        setupFiles: './src/test/setup.ts',
-        include: ["**/__tests__/**/*.+(ts|tsx|js)", "**/?(*.)+(spec|test).+(ts|tsx|js)"],
-            coverage: {
-        enabled: true,
+        alias: {
+            '@test-utils': './src/test/test-utils.tsx'
+        },
+        coverage: {
+            enabled: false,
             reportsDirectory: './coverage',
         },
+        environment: 'jsdom',
+        globals: true,
+        include: ["**/__tests__/**/*.+(ts|tsx|js)", "**/?(*.)+(spec|test).+(ts|tsx|js)"],
+        setupFiles: './src/test/setup.ts',
         transformMode: {
             web: [/\.[jt]sx$/],
         },

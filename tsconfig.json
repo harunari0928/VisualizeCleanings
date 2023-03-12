@@ -17,6 +17,9 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "types": ["vite/client"],
+    "paths": {
+      "@test-utils": ["./src/test/test-utils.tsx"]
+    }
   },
   "include": [
     "./src/**/__tests__/**/*"

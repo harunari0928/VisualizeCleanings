@@ -14,5 +14,6 @@
 			}
 		}
 	},
-	"shutdownAction": "none"
+	"shutdownAction": "none",
+	"remoteUser": "node"
 }

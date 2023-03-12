@@ -10,12 +10,12 @@
     "build": "vite build",
     "dev": "vite serve -m develop",
     "preview": "vite preview",
-    "test": "vitest",
-    "test:watch": "vitest watch"
+    "test": "vitest"
   },
   "devDependencies": {
-    "@testing-library/react": "^10.4.3",
-    "@testing-library/user-event": "^12.0.11",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "14.0.0",
+    "@testing-library/user-event": "14.4.3",
     "@types/google-one-tap": "^1.2.2",
     "@types/node": "18.15.0",
     "@types/react-dom": "^18.0.6",
@@ -23,8 +23,7 @@
     "@vitest/coverage-c8": "^0.29.2",
     "eslint": "^7.4.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "react-refresh": "^0.14.0",
-    "vitest": "^0.29.2"
+    "vitest": "0.29.2"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -32,7 +31,6 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.2",
     "@mui/styled-engine-sc": "^5.11.0",
-    "@testing-library/jest-dom": "^5.16.5",
     "@types/react-router-config": "^5.0.1",
     "@vitejs/plugin-react": "^3.1.0",
     "chart.js": "^3.6.1",
