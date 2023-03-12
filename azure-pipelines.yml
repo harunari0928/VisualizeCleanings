@@ -5,6 +5,7 @@
 
 trigger:
 - master
+- feature/*
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -12,11 +13,13 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '12.x'
+    versionSpec: '19.x'
   displayName: 'Install Node.js'
 
 - script: |
     npm install
     npm build
-    npm run test:ci
+    npm run test
   displayName: 'build and test'
+  env:
+    NPM_TOKEN: $(SecretNpmToken)

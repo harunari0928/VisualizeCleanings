@@ -5,7 +5,8 @@ import viteConfig from './vite.config'
 export default mergeConfig(viteConfig, defineConfig({
     test: {
         alias: {
-            '@test-utils': './src/test/test-utils.tsx'
+            '@test-utils': './test/test-utils.tsx',
+            '@components/': './app/components/',
         },
         coverage: {
             enabled: false,
@@ -13,8 +14,9 @@ export default mergeConfig(viteConfig, defineConfig({
         },
         environment: 'jsdom',
         globals: true,
-        include: ["**/__tests__/**/*.+(ts|tsx|js)", "**/?(*.)+(spec|test).+(ts|tsx|js)"],
-        setupFiles: './src/test/setup.ts',
+        include: ["**/__tests__/**/*.+(ts|tsx|js)", "**/?(*.)+spec.+(ts|tsx|js)"],
+        root: 'src',
+        setupFiles: './test/setup.ts',
         transformMode: {
             web: [/\.[jt]sx$/],
         },
