@@ -17,6 +17,11 @@ export default defineConfig(() => {
             }),
         ],
         root: 'src',
+        resolve: {
+            alias: {
+                '@components/': './app/components/',
+            },
+        },
         server: {
             host: true,
             port: 3000,

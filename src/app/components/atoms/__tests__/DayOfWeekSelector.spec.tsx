@@ -1,6 +1,6 @@
-import { render, screen, userEvent } from '@test-utils';
 import { describe, it } from 'vitest';
-import DayOfWeekSelector from '../DayOfWeekSelector';
+import DayOfWeekSelector from '@components/atoms/DayOfWeekSelector';
+import { render, screen, userEvent } from '@test-utils';
 
 describe('DayOfWeekSelectorTest', () => {
     it('初期値が日曜日であること', async () => {
