@@ -12,7 +12,7 @@ type Props = {
 const isHTMLInputElement = (value:  (EventTarget & HTMLInputElement) | (EventTarget & {
     value: number;
     name: string;
-})): value is EventTarget & HTMLInputElement => 'addEventListener' in value;
+})): value is HTMLInputElement => 'addEventListener' in value;
 
 const DayOfWeekSelector = ({ sx, onChange }: Props) =>
     <FormControl variant='standard' sx={{ ...sx, width: '4rem' }} required>
@@ -26,7 +26,7 @@ const DayOfWeekSelector = ({ sx, onChange }: Props) =>
                 } 
                 onChange(target.value);
             }}
-        >{['日', '月', '火', '水', '木', '金', '土'].map((d, i) => <MenuItem value={i}>{d}</MenuItem>)}
+        >{['日', '月', '火', '水', '木', '金', '土'].map((d, i) => <MenuItem value={i} key={i}>{d}</MenuItem>)}
         </Select>
     </FormControl>;
 
