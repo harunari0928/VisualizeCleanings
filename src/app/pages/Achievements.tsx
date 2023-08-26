@@ -1,5 +1,5 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import Grid from '@mui/material/Grid';
 import RegisterButton from '../components/atoms/RegisterButton';

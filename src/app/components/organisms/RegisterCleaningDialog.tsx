@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from 'react';
+import DifficultyForm from '@components/atoms/DifficultyForm';
+import RemarksForm from '@components/atoms/RemarksForm';
+import TitleForm from '@components/atoms/TitleForm';
+import BasicDialogActionButtons from '@components/atoms/BasicDialogActionButtons';
+import OccurrenceForm, { Occurrence } from '@components/moleculars/OccurrenceForm';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import Stack from "@mui/material/Stack";
-import DifficultyForm from '../atoms/DifficultyForm';
-import RemarksForm from '../atoms/RemarksForm';
-import TitleForm from '../atoms/TitleForm';
-import BasicDialogActionButtons from '../atoms/BasicDialogActionButtons';
-import OccurrenceForm, { Occurrence } from '../moleculars/OccurrenceForm';
+import Stack from '@mui/material/Stack';
 
 type Props = {
     isOpen: boolean,
@@ -22,7 +22,7 @@ const RegisterCleaningDialog = ({ isOpen, setOpen }: Props) => {
 
     return <Dialog
         fullWidth={true}
-        maxWidth="xs"
+        maxWidth='xs'
         open={isOpen}
         onClose={() => {
             setOpen(false);
@@ -43,7 +43,7 @@ const RegisterCleaningDialog = ({ isOpen, setOpen }: Props) => {
             </Stack>
         </DialogContent>
         <BasicDialogActionButtons
-            executionTitle="登録" cancelTitle="キャンセル"
+            executionTitle='登録' cancelTitle='キャンセル'
             onExecute={() => setOpen(false)}
             onCancel={() => setOpen(false)} />
     </Dialog>;

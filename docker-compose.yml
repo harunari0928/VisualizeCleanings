@@ -11,9 +11,6 @@ services:
       - /workspace/node_modules
     command: /bin/sh -c "npm run build;while sleep 1000; do :; done" 
     container_name: visualize_effort_frontend_server
-    environment:
-      GOOGLE_CLIENT_ID: 1038036987590-67hu5cedcmtqmuc77s9kvc2dhthl1gv4.apps.googleusercontent.com
-      BASE_BACKEND_PATH: /api
   proxy:
     image: nginx:latest
     volumes:

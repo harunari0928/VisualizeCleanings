@@ -1,5 +1,5 @@
 import { BaseAPI, Configuration, CratecontrollersauthenticationControllersApi } from "effort-visualizer-api-client";
-import React, { createContext, useContext } from "react";
+import { createContext, useContext } from 'react';
 
 type ApiClients = {
     authApiClient: Omit<CratecontrollersauthenticationControllersApi, keyof BaseAPI>
@@ -7,7 +7,7 @@ type ApiClients = {
 
 const apiClients: ApiClients = {
     authApiClient: new CratecontrollersauthenticationControllersApi(new Configuration({
-        basePath: process.env.BASE_BACKEND_PATH
+        basePath: import.meta.env.VITE_BASE_BACKEND_PATH
     })),
 };
 

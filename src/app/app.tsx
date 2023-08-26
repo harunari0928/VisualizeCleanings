@@ -1,6 +1,5 @@
-﻿import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+﻿import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BackendProvider from './contexts/BackendContext';
 import Achievements from './pages/Achievements';
 import Cleanings from './pages/Cleanings';
@@ -16,11 +15,11 @@ createRoot(container).render(
     <BackendProvider>
         <Router>
             <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/top" element={<Top />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/achievements" element={<Achievements />} />
-                <Route path="/cleanings" element={<Cleanings />} />
+                <Route path='/' element={<Login />} />
+                <Route path='/top' element={<Top />} />
+                <Route path='/signup' element={<Signup />} />
+                <Route path='/achievements' element={<Achievements />} />
+                <Route path='/cleanings' element={<Cleanings />} />
             </Routes>
         </Router>
     </BackendProvider>

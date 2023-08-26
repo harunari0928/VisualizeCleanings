@@ -12,3 +12,5 @@ COPY package-lock.json ./
 COPY .npmrc ./
 
 RUN npm install
+
+RUN chown -R node node_modules
