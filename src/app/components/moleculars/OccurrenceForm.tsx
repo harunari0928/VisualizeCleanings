@@ -1,13 +1,12 @@
-import React from "react";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import { SxProps } from "@mui/material/styles";
-import { Theme } from "@mui/system";
-import DayOfWeekSelector from '../atoms/DayOfWeekSelector';
-import DaySelector from '../atoms/DaySelector';
+import DayOfWeekSelector from '@components/atoms/DayOfWeekSelector';
+import DaySelector from '@components/atoms/DaySelector';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import { SxProps } from '@mui/material/styles';
+import { Theme } from '@mui/system';
 
 export type Occurrence = 'everyday' | 'byMonth' | 'byDayOfWeek';
 
@@ -23,7 +22,7 @@ const OccurrenceDetailForm = ({ occurrence }: { occurrence: Occurrence }) => {
         case 'byMonth':
             return <DaySelector sx={marginBetweenForms} />;
         case 'byDayOfWeek':
-            return <DayOfWeekSelector sx={marginBetweenForms} />;
+            return <DayOfWeekSelector sx={marginBetweenForms} onChange={() => {}} />;
         default:
             return <></>;
     }
@@ -35,9 +34,9 @@ const OccurrenceForm = ({ setOccurrence, occurrence, sx }: Props) =>
             <FormLabel>発生頻度</FormLabel>
             <RadioGroup
                 row
-                aria-labelledby="frequency-of-occurrence-group-label"
-                name="frequency-of-occurrence-group"
-                defaultValue="everyday"
+                aria-labelledby='frequency-of-occurrence-group-label'
+                name='frequency-of-occurrence-group'
+                defaultValue='everyday'
                 onChange={e => setOccurrence(e.target.value as Occurrence)}
             >
                 {[

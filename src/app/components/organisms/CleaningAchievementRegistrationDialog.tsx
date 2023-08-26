@@ -1,9 +1,8 @@
-import React from "react";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import BasicDialogActionButtons from '../atoms/BasicDialogActionButtons';
+import BasicDialogActionButtons from '@components/atoms/BasicDialogActionButtons';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 type Props = {
     isOpen: boolean,
@@ -13,7 +12,7 @@ type Props = {
 const CleaningAchievementRegistrationDialog = ({ isOpen, onClose }: Props) =>
     <Dialog
         fullWidth={true}
-        maxWidth="md"
+        maxWidth='md'
         open={isOpen}
         onClose={onClose}
     >
@@ -24,7 +23,7 @@ const CleaningAchievementRegistrationDialog = ({ isOpen, onClose }: Props) =>
             </DialogContentText>
         </DialogContent>
         <BasicDialogActionButtons
-            executionTitle="登録" cancelTitle="閉じる"
+            executionTitle='登録' cancelTitle='閉じる'
             onExecute={onClose}
             onCancel={onClose} />
     </Dialog>;

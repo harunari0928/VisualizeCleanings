@@ -1,15 +1,27 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "noEmitOnError": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
     "removeComments": true,
     "sourceMap": true,
-    "target": "es6",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "strictNullChecks": true,
     "noImplicitAny": true,
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "types": ["vite/client"],
+    "baseUrl": "src",
+    "paths": {
+      "@test-utils": ["./test/test-utils.tsx"],
+      "@components/*": ["./app/components/*"]
+    },
   },
   "include": [
     "./src/**/__tests__/**/*"
