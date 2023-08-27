@@ -9,7 +9,7 @@ type Props = {
     onChange: (value: number) => void;
 };
 
-const isHTMLInputElement = (value:  (EventTarget & HTMLInputElement) | (EventTarget & {
+const isHTMLInputElement = (value: (EventTarget & HTMLInputElement) | (EventTarget & {
     value: number;
     name: string;
 })): value is HTMLInputElement => 'addEventListener' in value;
@@ -23,7 +23,7 @@ const DayOfWeekSelector = ({ sx, onChange }: Props) =>
             onChange={({ target }, _) => {
                 if (isHTMLInputElement(target)) {
                     throw new Error('Invalid event target.');
-                } 
+                }
                 onChange(target.value);
             }}
         >{['日', '月', '火', '水', '木', '金', '土'].map((d, i) => <MenuItem value={i} key={i}>{d}</MenuItem>)}
