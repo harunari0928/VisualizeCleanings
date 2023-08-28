@@ -7,10 +7,18 @@ trigger:
 - master
 - feature/*
 
+pr:
+  branches:
+    include:
+    - main
+
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- checkout: self
+  fetchDepth: 0
+
 - task: NodeTool@0
   inputs:
     versionSpec: '19.x'
@@ -21,5 +29,16 @@ steps:
     npm build
     npm run test
   displayName: 'build and test'
+  condition: succeeded()
   env:
     NPM_TOKEN: $(SecretNpmToken)
+
+- script: |
+    npm run storybook:build
+    npm run vrt:snapshot
+    npm run vrt:run
+  displayName: 'visual regression test'
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+  env:
+    REG_NOTIFY_CLIENT_ID: $(RegNotifyClientId)
+    REG_STORAGE_ACCOUNT_KEY: $(RegStorageAccountKey)

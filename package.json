@@ -12,7 +12,9 @@
     "preview": "vite preview",
     "test": "vitest",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build:storybook": "storybook build",
+    "vrt:storycap": "storycap --serverCmd \"npx http-server storybook-static -p 6006\" http://localhost:6006",
+    "vrt:run": "reg-suit run"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.3.2",
@@ -34,7 +36,12 @@
     "eslint": "^7.4.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.13",
+    "reg-keygen-git-hash-plugin": "^0.12.2",
+    "reg-notify-github-plugin": "^0.12.2",
+    "reg-publish-azure-blob-storage-plugin": "npm:@yukonsky/reg-publish-azure-blob-storage-plugin@^0.12.11",
+    "reg-suit": "^0.12.2",
     "storybook": "^7.3.2",
+    "storycap": "^4.2.0",
     "vitest": "0.29.2"
   },
   "dependencies": {
