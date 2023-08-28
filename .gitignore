@@ -117,4 +117,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-osrm-backend-data/*
+osrm-backend-data/*.reg
