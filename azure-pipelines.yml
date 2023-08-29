@@ -9,7 +9,7 @@ trigger:
 pr:
   branches:
     include:
-    - main
+    - master
 
 pool:
   vmImage: 'ubuntu-20.04'
