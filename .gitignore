@@ -118,3 +118,5 @@ dist
 .pnp.*
 
 osrm-backend-data/*.reg
+
+storybook-static

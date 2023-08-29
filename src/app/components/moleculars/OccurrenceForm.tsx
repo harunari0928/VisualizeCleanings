@@ -44,7 +44,7 @@ const OccurrenceForm = ({ setOccurrence, occurrence, sx }: Props) =>
                     ['byMonth', '日付ごと'],
                     ['byDayOfWeek', '曜日ごと'],
                 ].map(([v, l]) =>
-                    <FormControlLabel value={v} control={<Radio />} label={l} />)}
+                    <FormControlLabel key={v} value={v} control={<Radio />} label={l} />)}
             </RadioGroup>
         </FormControl>
         <OccurrenceDetailForm occurrence={occurrence} />
