@@ -13,7 +13,7 @@
     "test": "vitest",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
-    "vrt:snapshot": "storycap --parallel 1 -o directory_contains_actual_images --serverCmd \"npx storybook dev --static-dir ../storybook-static -p 6107\" http://localhost:6107",
+    "vrt:snapshot": "storycap --serverCmd \"npx http-server storybook-static -p 6006\" http://localhost:6006",
     "vrt:run": "reg-suit run"
   },
   "devDependencies": {
