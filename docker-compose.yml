@@ -9,7 +9,7 @@ services:
     volumes:
       - .:/workspace
       - /workspace/node_modules
-    command: /bin/sh -c "npm run build;while sleep 1000; do :; done" 
+    command: /bin/sh -c "while sleep 1000; do :; done" 
     container_name: visualize_effort_frontend_server
   proxy:
     image: nginx:latest

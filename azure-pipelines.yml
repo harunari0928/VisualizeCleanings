@@ -5,15 +5,14 @@
 
 trigger:
 - master
-- feature/*
 
 pr:
   branches:
     include:
-    - main
+    - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-20.04'
 
 steps:
 - checkout: self
@@ -21,12 +20,12 @@ steps:
 
 - task: NodeTool@0
   inputs:
-    versionSpec: '19.x'
+    versionSpec: '20.5.1'
   displayName: 'Install Node.js'
 
 - script: |
     npm install
-    npm build
+    npm run build
     npm run test
   displayName: 'build and test'
   condition: succeeded()
@@ -34,11 +33,26 @@ steps:
     NPM_TOKEN: $(SecretNpmToken)
 
 - script: |
-    npm run storybook:build
-    npm run vrt:snapshot
+    git switch $(system.pullRequest.sourceBranch)
+  displayName: 'switch branch'
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+
+- script: |
+    git switch `echo $(Build.SourceBranch) | sed 's/refs\/heads\///'`
+  displayName: 'switch branch'
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+
+- script: |
+    sudo apt-get install -y fonts-ipafont fonts-ipaexfont
+    npm run build:storybook
+    for i in $(seq 1 5); do
+      echo "スナップショット撮影 $i 回目試行"
+      npm run vrt:snapshot 2>&1 && break
+      sleep 5 && /bin/false
+    done
     npm run vrt:run
   displayName: 'visual regression test'
-  condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+  condition: succeeded()
   env:
     REG_NOTIFY_CLIENT_ID: $(RegNotifyClientId)
     REG_STORAGE_ACCOUNT_KEY: $(RegStorageAccountKey)
