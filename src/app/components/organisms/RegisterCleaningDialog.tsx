@@ -43,7 +43,7 @@ const RegisterCleaningDialog = ({ isOpen, setOpen }: Props) => {
             </Stack>
         </DialogContent>
         <BasicDialogActionButtons
-            executionTitle='登録' cancelTitle='キャンセル'
+            executionTitle='登録!' cancelTitle='キャンセル'
             onExecute={() => setOpen(false)}
             onCancel={() => setOpen(false)} />
     </Dialog>;
