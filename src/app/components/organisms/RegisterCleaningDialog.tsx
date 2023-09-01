@@ -31,7 +31,7 @@ const RegisterCleaningDialog = ({ isOpen, setOpen }: Props) => {
     >
         <DialogTitle>掃除登録</DialogTitle>
         <DialogContent>
-            <DialogContentText>掃除を登録します。</DialogContentText>
+            <DialogContentText sx={{ letterSpacing: '0.5rem' }}>掃除を登録します。</DialogContentText>
             <Stack>
                 <TitleForm sx={marginBetweenForms} />
                 <DifficultyForm sx={marginBetweenForms} />
@@ -46,7 +46,7 @@ const RegisterCleaningDialog = ({ isOpen, setOpen }: Props) => {
             executionTitle='登録' cancelTitle='キャンセル'
             onExecute={() => setOpen(false)}
             onCancel={() => setOpen(false)} />
-    </Dialog>;
+    </Dialog >;
 };
 
 export default RegisterCleaningDialog;
